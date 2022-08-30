@@ -1,4 +1,4 @@
-package com.example.tipodocumento.controllers;
+package com.example.tipodocumento.repository.controllers;
 
 
 import com.example.tipodocumento.services.tipoDocumentoService;
