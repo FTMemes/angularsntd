@@ -1,1 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_sintad?useSLL=false&serverTimeZone=UTC
+    username: root
+    password: oracle
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
 
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug

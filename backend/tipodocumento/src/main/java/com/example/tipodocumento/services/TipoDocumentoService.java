@@ -1,31 +1,30 @@
 package com.example.tipodocumento.services;
 
-import com.example.tipodocumento.entity.tipoDocumento;
-import com.example.tipodocumento.repository.tipoDocumentoRepository;
+import com.example.tipodocumento.entity.TipoDocumento;
+import com.example.tipodocumento.repository.TipoDocumentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class tipoDocumentoService {
+public class TipoDocumentoService {
   @Autowired
-  private tipoDocumentoRepository tipodocumentoRepository;
+  private TipoDocumentoRepository tipoDocumentoRepository;
 
-  public List<tipoDocumento> getAll() {
-    return tipodocumentoRepository.findAll();
+  public List<TipoDocumento> getAll() {
+    return tipoDocumentoRepository.findAll();
   }
 
-  public tipoDocumento getTipoDocumentobyId(int id) {
-    return tipodocumentoRepository.findById(id).orElse(null);
+  public TipoDocumento getTipoDocumentobyId(int id) {
+    return tipoDocumentoRepository.findById(id).orElse(null);
   }
 
-  public tipoDocumento saveTipoDocumento(tipoDocumento tipodocumento) {
-    return tipodocumentoRepository.save(tipodocumento);
+  public TipoDocumento saveTipoDocumento(TipoDocumento tipodocumento) {
+    return tipoDocumentoRepository.save(tipodocumento);
   }
 
-  public void deleteTipoDocumento(tipoDocumento tipodocumento){
-    tipodocumentoRepository.delete(tipodocumento);
-    return;
+  public void deleteTipoDocumento(int id) {
+    tipoDocumentoRepository.deleteById(id);
   }
 }
