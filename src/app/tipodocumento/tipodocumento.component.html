@@ -11,19 +11,19 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+      <tr *ngFor="let tipodocumento of tipodocumentos">
+        <th scope="row">{{tipodocumento.id_tipo_documento}}</th>
+        <td>{{tipodocumento.codigo}}</td>
+        <td>{{tipodocumento.nombre}}</td>
+        <td>{{tipodocumento.descripcion}}</td>
+        <td>@{{tipodocumento.estado}}</td>
         <td>
             <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
             <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
             <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
         </td>
       </tr>
-      <tr>
+      <!-- <tr>
         <th scope="row">2</th>
         <td>Jacob</td>
         <td>Thornton</td>
@@ -46,6 +46,6 @@
             <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
             <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
         </td>
-      </tr>
+      </tr> -->
     </tbody>
   </table>
