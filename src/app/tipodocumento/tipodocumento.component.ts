@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TipoDocumento } from '../models/TipoDocumento';
+import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-tipodocumento',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TipodocumentoComponent implements OnInit {
 
-  constructor() { }
+  tipodocumentos!: TipoDocumento[];
+  constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
+    this.service.getTipoDocumento().subscribe(data => { this.tipodocumentos = data; })
   }
 
 }
