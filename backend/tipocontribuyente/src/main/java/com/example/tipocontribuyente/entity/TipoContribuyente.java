@@ -1,4 +1,4 @@
-package com.example.tipodocumento.entity;
+package com.example.tipocontribuyente.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,16 +7,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tb_tipo_documento")
+@Table(name = "tb_tipo_contribuyente")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class TipoDocumento {
+@NoArgsConstructor
+public class TipoContribuyente {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id_tipo_documento;
-  private String codigo;
+  private int id_tipo_contribuyente;
   private String nombre;
-  private String descripcion;
   private int estado;
 }

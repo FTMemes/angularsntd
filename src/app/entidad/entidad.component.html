@@ -1,4 +1,9 @@
-<table class="table table-dark table-striped">
+<h1 style="text-align: center;">Lista de entidades</h1>
+<button class="btn btn-success">Agregar Entidad</button>
+<br>
+<br>
+<div class="container text-center">
+  <table class="table table-dark table-striped">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -12,47 +17,60 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
+      <tr *ngFor="let entidad of entidades">
+        <th scope="row">{{entidad.id_entidad}}</th>
+        <td>{{entidad.nombre_comercial}}</td>
+        <td>{{entidad.nro_documento}}</td>
+        <td>{{entidad.razon_social}}</td>
+        <td>{{entidad.direccion}}</td>
+        <td>{{entidad.telefono}}</td>
+        <td>{{entidad.estado}}</td>
         <td>
-            <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-            <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>
-            <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-            <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>
-            <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-            <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
+          <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button (click)="eliminarEntidad(entidad.id_entidad)" class="btn btn-danger"><i
+              class="fa-solid fa-trash-can"></i></button>
+          <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+  <div class="card text-center" style="width: 450px;">
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="agregarEntidad()">
+        <h1>Agregar Entidad</h1>
+        <br>
+        <div class="form-floating mb-3">
+          <input formControlName="nro_documento" type="text" class="form-control" placeholder="Nombre Comercial">
+          <label for="floatingInput">Nombre Comercial</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input formControlName="razon_social" type="text" class="form-control" id="floatingInput" placeholder="N° de Documento">
+          <label for="floatingInput">N° de Documento</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input formControlName="nombre_comercial" type="text" class="form-control" id="floatingInput" placeholder="Razón Social">
+          <label for="floatingInput">Razón Social</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input formControlName="direccion" type="text" class="form-control" id="floatingPassword" placeholder="Dirección">
+          <label for="floatingPassword">Dirección</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input formControlName="telefono" type="text" class="form-control" id="floatingPassword" placeholder="Teléfono">
+          <label for="floatingPassword">Teléfono</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input formControlName="estado" type="text" class="form-control" id="floatingPassword" placeholder="Estado">
+          <label for="floatingPassword">Estado</label>
+        </div>
+        <div class="row mt-4">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button type="submit" class="btn btn-success">Agregar Entidad</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

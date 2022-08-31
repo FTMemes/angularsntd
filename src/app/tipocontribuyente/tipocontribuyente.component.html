@@ -1,3 +1,4 @@
+<h1 style="text-align: center;">Lista de Tipos de Contribuyentes</h1>
 <div class="container text-center">
     <table class="table table-dark table-striped">
         <thead>
@@ -9,36 +10,39 @@
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>@mdo</td>
+            <tr *ngFor="let tipocontribuyente of tipocontribuyentes">
+                <th scope="row">{{tipocontribuyente.id_tipo_contribuyente}}</th>
+                <td>{{tipocontribuyente.nombre}}</td>
+                <td>{{tipocontribuyente.estado}}</td>
                 <td>
                     <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                    <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>@fat</td>
-                <td>
-                    <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                    <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>@mdo</td>
-                <td>@twitter</td>
-                <td>
-                    <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                    <button (click)="eliminarTipoContribuyentes(tipocontribuyente.id_tipo_contribuyente)" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                     <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+    <div class="card text-center" style="width: 450px;">
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="agregarTipoContribuyente()">
+          <h1>Agregar Tipo de Contribuyente</h1>
+          <br>
+          <div class="form-floating mb-3">
+            <input formControlName="nombre" type="text" class="form-control" id="floatingInput" placeholder="Nombre">
+            <label for="floatingInput">Nombre</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input formControlName="estado" type="text" class="form-control" id="floatingInput" placeholder="Estado">
+            <label for="floatingInput">Estado</label>
+          </div>
+          <div class="row mt-4">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+              <button type="submit" class="btn btn-success">Agregar Tipo de Contribuyente</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

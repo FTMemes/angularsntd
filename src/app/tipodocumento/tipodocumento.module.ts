@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TipodocumentoRoutingModule } from './tipodocumento-routing.module';
 import { TipodocumentoComponent } from './tipodocumento.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { TipodocumentoComponent } from './tipodocumento.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     TipodocumentoRoutingModule
   ]
 })

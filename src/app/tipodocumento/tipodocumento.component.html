@@ -1,51 +1,63 @@
+<h1 style="text-align: center;">Lista de Tipos de Documento</h1>
 
-<table class="table table-dark table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Código</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Acciones</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let tipodocumento of tipodocumentos">
-        <th scope="row">{{tipodocumento.id_tipo_documento}}</th>
-        <td>{{tipodocumento.codigo}}</td>
-        <td>{{tipodocumento.nombre}}</td>
-        <td>{{tipodocumento.descripcion}}</td>
-        <td>@{{tipodocumento.estado}}</td>
-        <td>
-            <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-            <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
-        </td>
-      </tr>
-      <!-- <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>@mdo</td>
-        <td>
-            <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-            <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>@mdo</td>
-        <td>Larry the Bird</td>
-        <td>@twitter</td>
-        <td>@mdo</td>
-        <td>
-            <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-            <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
-        </td>
-      </tr> -->
-    </tbody>
-  </table>
+<div class="container text-center">
+    <br>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Código</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let tipodocumento of tipodocumentos">
+                <th scope="row">{{tipodocumento.id_tipo_documento}}</th>
+                <td>{{tipodocumento.codigo}}</td>
+                <td>{{tipodocumento.nombre}}</td>
+                <td>{{tipodocumento.descripcion}}</td>
+                <td>{{tipodocumento.estado}}</td>
+                <td>
+                    <button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button (click)="eliminarTipoDocumento(tipodocumento.id_tipo_documento)" class="btn btn-danger"><i
+                            class="fa-solid fa-trash-can"></i></button>
+                    <button class="btn btn-secondary"><i class="fa-solid fa-eye"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+    <div class="card text-center" style="width: 450px;">
+        <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="agregarTipoDocumento()">
+                <h1>Agregar Tipo de Documento</h1>
+                <br>
+                <div class="form-floating mb-3">
+                    <input formControlName="codigo" type="text" class="form-control" id="floatingInput" placeholder="Código">
+                    <label for="floatingInput">Código</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input formControlName="nombre" type="text" class="form-control" id="floatingInput" placeholder="Nombre">
+                    <label for="floatingInput">Nombre</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input formControlName="descripcion" type="text" class="form-control" id="floatingInput" placeholder="Descripción">
+                    <label for="floatingInput">Descripción</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input formControlName="estado" type="text" class="form-control" id="floatingPassword" placeholder="Estado">
+                    <label for="floatingPassword">Estado</label>
+                </div>
+                <div class="row mt-4">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <button type="submit" class="btn btn-success">Agregar Tipo de Documento</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

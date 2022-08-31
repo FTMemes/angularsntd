@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { EntidadRoutingModule } from './entidad-routing.module';
 import { EntidadComponent } from './entidad.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { EntidadComponent } from './entidad.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     EntidadRoutingModule
   ]
 })
